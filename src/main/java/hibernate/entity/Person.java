@@ -1,9 +1,6 @@
 package hibernate.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,11 +11,21 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@IdClass(PersonPK.class)
 @Table(name = "PERSONS")
 public class Person {
 
-    @EmbeddedId
-    private PersonPK personPK;
+    @Id
+    @Column(length = 50)
+    private String name;
+
+    @Id
+    @Column(length = 50)
+    private String surname;
+
+    @Id
+    private int age;
+
     @Column(name = "phone_number", nullable = false, length = 12)
     private String phoneNumber;
     @Column(name = "city_of_living", nullable = false, length = 50)

@@ -14,7 +14,7 @@ public class Service {
     }
 
     public List<Person> getPersonsByCity(String city) {
-        return repository.findByCityOfLiving(city.toUpperCase());
+        return repository.findByCityOfLiving(city);
     }
 
     public List<Person> getAge(int age) {
